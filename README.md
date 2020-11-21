@@ -7,6 +7,8 @@ check the gif file to see the demo
 
 # Card Gallery
 check the gif file to see the demo 
+
+![gallery Demo](https://github.com/ahmansou/usefulReactComponents/blob/main/Gallery/gallery.gif)
 ![gallery Demo](https://github.com/ahmansou/usefulReactComponents/blob/main/Gallery/gallery.png)
 
 
