@@ -1,0 +1,99 @@
+.CatGallery {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-columns: 100% auto;
+	grid-template-rows: auto 100px;
+	
+}
+
+
+$imageCardSz: 200px;
+$modalCardSz: 90%;
+
+.CatGalleryContainer {
+	margin-left: 150px;
+	margin-right: 150px;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	display: grid;
+	grid-gap: 40px;
+	grid-template-columns: 
+		repeat(auto-fit, $imageCardSz);
+	grid-auto-rows: $imageCardSz;
+	justify-content: center;
+	// background-color: red;
+}
+
+.CatGalleryContainer::-webkit-scrollbar
+{
+	display: none;
+}
+				
+.ImageCard {
+	--aspect-ratio: 1/1;
+}
+
+
+@media only screen and (max-width: 600px) {
+	.CatGalleryContainer {
+		margin-left: auto;
+		margin-right: auto;
+		// margin-top: 100px;
+		width: 100%;
+	}
+
+	.ImageCard {
+		grid-row: span 2 / auto;
+		grid-column: span 2 / auto;
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	.ImageCard:nth-child(1) {
+		grid-row: span 2 / auto;
+		grid-column: span 2 / auto;
+	}
+	
+	@for $i from 2 to 10000 {
+		.ImageCard:nth-child(#{$i}) {
+			content: $i;
+		}
+		@if $i % 10 == 0 {
+			.ImageCard:nth-child(#{$i}) {
+				grid-column: span 2 / auto;
+			}
+		}
+		// @if $i % 10 == 0 {
+		// 	.ImageCard:nth-child(#{$i}) {
+		// 		grid-row: span 2 / auto;
+		// 		grid-column: span 2 / auto;
+		// 	}
+		// }
+	}
+}
+
+.ImageCard .Image {
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	// height: $modalCardSz;
+	background-size: cover;
+	// background-size: contain;
+	border-radius: 20px;
+	background-position: center;
+	// background-color: #FFC608;
+	background-color: white;
+	box-sizing: border-box;
+	transition: all .3s ease;
+	cursor: pointer;
+}
+
+.ImageCard .Image:hover {
+	background-color: #FFC608;
+	transform: scale(1.1);
+	box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}

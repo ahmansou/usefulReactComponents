@@ -1,0 +1,107 @@
+@keyframes cardEntrance {
+	from {
+		opacity: 0;
+		transform: scale(0);
+		width: 0;
+		height: 0;
+	}
+	to {
+		opacity: 1;
+		/* transform: scale(1); */
+		/* height: 70%; */
+		width: 600px;
+		height: max-content;
+	}
+}
+
+.ImageModal {
+	position: absolute;
+	margin: auto;
+	position: fixed;
+    left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 99998;
+	width: 600px;
+	height: max-content;
+	padding: 20px;
+	box-sizing: border-box;
+	background-color: #fabe25;
+	/* background-color: white; */
+	border: 20px soild #fabe25;
+	border-radius: 30px;
+
+}
+
+.ImageModalForward {
+	animation: cardEntrance 700ms ease;
+	animation-fill-mode: forwards;
+}
+
+.ImageModalBackward {
+	animation: cardEntrance 700ms ease;
+	animation-fill-mode: forwards;
+}
+
+.ImageModalBackDrop {
+	z-index: 99997;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: hsla(255, 0%, 0%, .5);
+	box-sizing: border-box;
+}
+
+.ImageModal img {
+	margin: 0;
+	width: 100%; 
+	height: 100%; 
+	object-fit: contain;
+	box-sizing: border-box;
+	border-radius: 20px;
+}
+
+
+@media (max-width: 700px) {
+	@keyframes cardEntrance {
+		from {
+			opacity: 0;
+			transform: scale(0);
+			width: 0;
+			height: 0;
+		}
+		to {
+			opacity: 1;
+			/* transform: scale(1); */
+			/* height: 70%; */
+			width:  90%;
+			height: max-content;
+		}
+	}
+
+	.ImageModal {
+		width: 90%;
+		left: 5%;
+		height: max-content;
+		transform: translate(0%, -50%);
+	}
+}
+
+.ImageModalClose {
+	border-radius: 9in;
+	z-index: 99999;
+	width: 50px;
+	height: 50px;
+	background-color: #fabe25;
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	display: flex;
+}
+
+.ImageModalClose:hover {
+	cursor: pointer;
+}
